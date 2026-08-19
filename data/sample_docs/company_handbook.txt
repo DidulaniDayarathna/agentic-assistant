@@ -1,0 +1,16 @@
+Acme Robotics Employee Handbook (Excerpt)
+
+Remote Work Policy: Employees may work remotely up to 3 days per week,
+subject to manager approval. Core collaboration hours are 10am-3pm in
+the employee's local timezone.
+
+Vacation Policy: Full-time employees accrue 18 days of paid time off
+per year, plus 10 company holidays. Unused PTO up to 5 days rolls over
+into the next calendar year.
+
+Expense Reimbursement: Submit expense reports within 30 days of
+purchase via the internal Expensify portal. Receipts are required for
+any single expense over $25.
+
+Equipment: New hires receive a laptop, monitor, and a one-time $300
+home-office stipend within their first month.

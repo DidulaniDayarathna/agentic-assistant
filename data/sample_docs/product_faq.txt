@@ -1,0 +1,17 @@
+Acme Robotics Product FAQ (Excerpt)
+
+Q: What is the battery life of the Acme R1 vacuum robot?
+A: The R1 runs for approximately 120 minutes on a full charge and
+recharges fully in 3 hours via its docking station.
+
+Q: Is the R1 compatible with voice assistants?
+A: Yes, the R1 supports both Amazon Alexa and Google Assistant for
+start/stop/status voice commands.
+
+Q: What is the warranty period?
+A: All Acme Robotics products ship with a 2-year limited warranty
+covering manufacturing defects.
+
+Q: Can the R1 climb over thresholds or thick carpet?
+A: The R1 can climb obstacles up to 2cm high, which covers most door
+thresholds and medium-pile carpet.

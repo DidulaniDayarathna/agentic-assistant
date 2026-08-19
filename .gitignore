@@ -1,0 +1,23 @@
+# secrets
+.env
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# faiss index cache if you persist it to disk later
+*.faiss
+*.pkl
+
+# OS / editor
+.DS_Store
+.vscode/settings.json
