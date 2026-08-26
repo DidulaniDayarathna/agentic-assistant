@@ -3,8 +3,8 @@ title: Agentic Assistant
 emoji: 🤖
 colorFrom: blue
 colorTo: purple
-sdk: docker
-app_port: 8000
+sdk: gradio
+app_file: gradio_app.py
 pinned: false
 ---
 
