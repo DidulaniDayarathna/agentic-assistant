@@ -1,16 +1,3 @@
-"""
-Document search (RAG) tool.
-
-Indexes everything under `settings.rag_data_dir` into a local FAISS
-vector store using a small sentence-transformers embedding model (runs
-on CPU, no API key required), then exposes a `search_documents` tool
-the agent can call for grounded, citeable answers instead of relying
-on the LLM's parametric memory.
-
-The index is built lazily on first use and cached in-process, so
-importing this module has no startup cost — useful for tests and for
-keeping app startup fast.
-"""
 import logging
 from functools import lru_cache
 from pathlib import Path

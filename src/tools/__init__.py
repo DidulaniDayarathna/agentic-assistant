@@ -1,10 +1,4 @@
-"""
-Central tool registry.
 
-Adding a new tool to the agent means: write it in its own module,
-import it here, and add it to ALL_TOOLS. Nothing else in the codebase
-needs to change.
-"""
 from src.tools.calculator import calculator
 from src.tools.rag import search_documents
 from src.tools.search import web_search

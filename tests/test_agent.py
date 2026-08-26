@@ -1,12 +1,6 @@
-"""
-Agent-level tests using LangChain's FakeListChatModel / a scripted
-tool-calling fake, so these run offline with no API key and no network
-access — important for CI.
-"""
+from langchain.agents import create_agent
 from langchain_core.messages import AIMessage, ToolCall
 from langgraph.checkpoint.memory import MemorySaver
-
-from langchain.agents import create_agent
 
 from src.agent import SYSTEM_PROMPT, run_turn
 from src.tools.word_count import word_count

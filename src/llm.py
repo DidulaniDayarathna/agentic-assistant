@@ -1,11 +1,3 @@
-"""
-LLM provider factory.
-
-Keeping this behind a factory function (rather than instantiating
-ChatOpenAI directly wherever it's needed) means swapping providers —
-OpenAI, a HF-hosted model, Anthropic, a local vLLM endpoint — is a
-one-place change, and tests can inject a fake model easily.
-"""
 import logging
 
 from langchain_openai import ChatOpenAI

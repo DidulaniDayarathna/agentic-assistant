@@ -1,14 +1,8 @@
-"""
-Weather tool backed by OpenWeatherMap, with a validated structured
-response instead of a free-text blob. Returning structured data makes
-the tool independently testable and easier for the LLM to summarize
-consistently.
-"""
 import logging
 
 import requests
 from langchain.tools import tool
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 from src.config import settings

@@ -6,8 +6,8 @@ from src.tools.calculator import CalculatorError, calculator, safe_eval
 from src.tools.weather import WeatherToolError, _fetch, get_weather
 from src.tools.word_count import word_count
 
-
 # ---------- word_count ----------
+
 
 def test_word_count_basic():
     assert word_count.invoke({"text": "hello world"}) == 2

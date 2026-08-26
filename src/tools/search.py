@@ -1,9 +1,3 @@
-"""
-Web search tool. Prefers Tavily (built for LLM agents, cleaner
-results, still has a free tier) when a key is configured, and falls
-back to DuckDuckGo (no key required) otherwise — so the project runs
-out of the box with zero search API keys.
-"""
 import logging
 
 from langchain.tools import tool

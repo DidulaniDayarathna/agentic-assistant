@@ -1,12 +1,3 @@
-"""
-Calculator tool.
-
-Deliberately does NOT use eval()/exec(). It parses the expression into
-an AST and walks it, allowing only a whitelist of arithmetic node
-types and functions. This is the kind of detail worth pointing out in
-an interview: a naive `eval(expr)` tool is an arbitrary-code-execution
-vulnerability the moment the agent is exposed to untrusted input.
-"""
 import ast
 import math
 import operator

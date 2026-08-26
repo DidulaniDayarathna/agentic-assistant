@@ -1,9 +1,3 @@
-"""
-FastAPI entrypoint.
-
-Run with:  uvicorn app:app --reload
-Docs at:   http://localhost:8000/docs
-"""
 import logging
 import uuid
 

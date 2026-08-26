@@ -1,17 +1,7 @@
-"""
-Agent construction.
-
-Wraps LangGraph's `create_agent` with:
-  - a persistent-per-thread memory checkpointer (multi-turn conversations)
-  - a max-iteration guard against runaway tool-call loops
-  - a single place (`build_agent`) that owns wiring, so app.py / tests /
-    notebooks all construct the agent the same way.
-"""
 import logging
 
-from langgraph.checkpoint.memory import MemorySaver
-
 from langchain.agents import create_agent
+from langgraph.checkpoint.memory import MemorySaver
 
 from src.config import settings
 from src.llm import get_llm
