@@ -1,10 +1,19 @@
 import uuid
 
 import gradio as gr
+import spaces
 
 from src.agent import build_agent, run_turn
 
 _agent = build_agent()
+
+
+@spaces.GPU
+def _claim_gpu():
+    """Dummy function so HF's ZeroGPU hardware detects GPU usage at
+    startup. Never actually called — all real inference happens
+    remotely via the HF router API, not on this Space's hardware."""
+    return None
 
 
 def chat_fn(message: str, history: list, thread_id: str):

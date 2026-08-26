@@ -15,6 +15,7 @@ pydantic-settings
 fastapi
 uvicorn[standard]
 gradio
+spaces
 faiss-cpu
 sentence-transformers
 
