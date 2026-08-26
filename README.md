@@ -10,6 +10,8 @@ pinned: false
 
 # Agentic Assistant
 
+🔗 **[Try the live demo](https://huggingface.co/spaces/Didulani/agentic-assistant)**
+
 A tool-using LLM agent (LangGraph `create_agent`) with weather, web
 search, document RAG, calculator, and word-count tools, served over a
 FastAPI HTTP API with per-session memory.
