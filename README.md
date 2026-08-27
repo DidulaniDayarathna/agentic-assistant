@@ -12,12 +12,12 @@ pinned: false
 
 🔗 **[Try the live demo](https://huggingface.co/spaces/Didulani/agentic-assistant)**
 
-A tool-using LLM agent (LangGraph `create_agent`) with weather, web
+A tool using LLM agent (LangGraph `create_agent`) with weather, web
 search, document RAG, calculator, and word-count tools, served over a
-FastAPI HTTP API with per-session memory.
+FastAPI HTTP API and a Gradio chat UI, with per-session memory.
 
 Started as a Colab notebook exploring LangChain agents; rebuilt as a
-small production-shaped project — tests, config management, structured
+small production shaped project tests, config management, structured
 tool outputs, error handling, Docker, and CI.
 
 ## Architecture
@@ -34,6 +34,7 @@ User → FastAPI /chat → LangGraph agent (create_agent)
 Conversation state persisted per thread_id via a LangGraph checkpointer.
 ```
 
+
 - **`src/config.py`** — all env vars / secrets loaded once via
   `pydantic-settings`. Nothing else touches `os.environ` directly.
 - **`src/llm.py`** — provider factory (OpenAI or a HF-router-hosted
@@ -44,6 +45,8 @@ Conversation state persisted per thread_id via a LangGraph checkpointer.
 - **`src/agent.py`** — builds the LangGraph agent with a system prompt,
   a memory checkpointer, and an iteration cap.
 - **`app.py`** — FastAPI wrapper (`/chat`, `/health`).
+- **`gradio_app.py`** — Gradio chat UI, used for the live Hugging Face
+  Spaces demo above.
 
 ## Why these design choices
 
@@ -51,6 +54,14 @@ Conversation state persisted per thread_id via a LangGraph checkpointer.
   battle-tested tool-calling, streaming, and interrupt/checkpoint
   support for free, and is the direction LangChain itself is
   standardizing on.
+- **Qwen2.5-72B-Instruct over DeepSeek-R1 for the agent's LLM.**
+  Reasoning models like R1 narrate their chain-of-thought as plain
+  text instead of reliably emitting structured tool calls, which
+  broke tool execution in testing (the model would describe calling
+  `get_weather` without actually invoking it). Non-reasoning instruct
+  models with dedicated tool-calling support are the more reliable
+  choice for an agent that must actually execute tools, not just
+  reason about them.
 - **Structured tool outputs where it matters** (`WeatherReport` is a
   Pydantic model) rather than returning a free-text API dump — makes
   the tool unit-testable independent of the LLM, and gives the model a
@@ -84,7 +95,7 @@ uvicorn app:app --reload
 # → http://localhost:8000/docs
 ```
 
-Or with Docker:
+Or with Docker (local testing only — the live demo runs on Gradio, see above):
 
 ```bash
 docker compose up --build
@@ -153,6 +164,11 @@ CI (`.github/workflows/ci.yml`) runs lint + tests on every push/PR.
   publicly.
 - LangSmith tracing is wired into config but not yet enabled by
   default; flip it on for tool-call observability.
+- HF Spaces' free tier only offers ZeroGPU hardware, which requires a
+  dummy `@spaces.GPU`-decorated function to be present at startup
+  (see `gradio_app.py`) even though this project's inference runs
+  remotely via the HF router, not on Space hardware. Expect a slow
+  cold start after periods of inactivity on the free tier.
 
 ## License
 
